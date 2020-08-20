@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    app:startDestination="@+id/startFragment">
+
+    <fragment
+        android:id="@+id/navigation_chats"
+        android:name="com.fredrikbogg.android_chat_app.ui.chats.ChatsFragment"
+        android:label="@string/title_chats"
+        tools:layout="@layout/fragment_chats">
+        <action
+            android:id="@+id/action_navigation_chats_to_chatFragment"
+            app:destination="@id/chatFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/navigation_notifications"
+        android:name="com.fredrikbogg.android_chat_app.ui.notifications.NotificationsFragment"
+        android:label="@string/title_notifications"
+        tools:layout="@layout/fragment_notifications" />
+    <fragment
+        android:id="@+id/navigation_users"
+        android:name="com.fredrikbogg.android_chat_app.ui.users.UsersFragment"
+        android:label="@string/title_users"
+        tools:layout="@layout/fragment_users">
+        <action
+            android:id="@+id/action_navigation_users_to_profileFragment"
+            app:destination="@id/profileFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/navigation_settings"
+        android:name="com.fredrikbogg.android_chat_app.ui.settings.SettingsFragment"
+        android:label="@string/title_settings"
+        tools:layout="@layout/fragment_settings" >
+        <action
+            android:id="@+id/action_navigation_settings_to_startFragment"
+            app:destination="@id/startFragment"
+            app:popUpTo="@id/startFragment"
+            app:popUpToInclusive="true" />
+    </fragment>
+    <fragment
+        android:id="@+id/profileFragment"
+        android:name="com.fredrikbogg.android_chat_app.ui.profile.ProfileFragment"
+        android:label="@string/title_profile"
+        tools:layout="@layout/fragment_profile" />
+    <fragment
+        android:id="@+id/chatFragment"
+        android:name="com.fredrikbogg.android_chat_app.ui.chat.ChatFragment"
+        android:label="@string/title_chat" />
+    <fragment
+        android:id="@+id/startFragment"
+        android:name="com.fredrikbogg.android_chat_app.ui.start.StartFragment"
+        android:label="Start">
+        <action
+            android:id="@+id/action_startFragment_to_createAccountFragment"
+            app:destination="@id/createAccountFragment" />
+        <action
+            android:id="@+id/action_startFragment_to_loginFragment"
+            app:destination="@id/loginFragment" />
+        <action
+            android:id="@+id/action_startFragment_to_navigation_chats"
+            app:destination="@id/navigation_chats"
+            app:launchSingleTop="true"
+            app:popUpTo="@id/startFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/loginFragment"
+        android:name="com.fredrikbogg.android_chat_app.ui.start.login.LoginFragment"
+        android:label="Login"
+        tools:layout="@layout/fragment_login">
+        <action
+            android:id="@+id/action_loginFragment_to_navigation_chats"
+            app:destination="@id/navigation_chats"
+            app:launchSingleTop="true"
+            app:popUpTo="@id/startFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/createAccountFragment"
+        android:name="com.fredrikbogg.android_chat_app.ui.start.createAccount.CreateAccountFragment"
+        android:label="Create Account"
+        tools:layout="@layout/fragment_create_account">
+        <action
+            android:id="@+id/action_createAccountFragment_to_navigation_chats"
+            app:destination="@id/navigation_chats"
+            app:launchSingleTop="true"
+            app:popUpTo="@id/startFragment" />
+    </fragment>
+</navigation>

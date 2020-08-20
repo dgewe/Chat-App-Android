@@ -1,0 +1,29 @@
+<resources>
+
+    <style name="AppTheme" parent="Theme.MaterialComponents.Light.NoActionBar">
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+        <item name="fontFamily">@font/nunito</item>
+        <item name="android:navigationBarColor">@android:color/black</item>
+    </style>
+
+    <style name="MessageNotSeen" parent="@style/TextAppearance.AppCompat">
+        <item name="android:textColor">?attr/colorPrimary</item>
+        <item name="android:fontFamily">@font/nunito_bold</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="MessageSeen" parent="@style/TextAppearance.AppCompat">
+        <item name="android:fontFamily">@font/nunito</item>
+     <item name="android:textColor">#808080</item>
+    </style>
+
+    <style name="BoldText" parent="@style/TextAppearance.AppCompat">
+        <item name="android:fontFamily">@font/nunito_bold</item>
+    </style>
+
+    <style name="VeryBoldText" parent="@style/TextAppearance.AppCompat">
+        <item name="android:textStyle">bold</item>
+    </style>
+</resources>

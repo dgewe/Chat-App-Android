@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="viewmodel"
+            type="com.fredrikbogg.android_chat_app.ui.users.UsersViewModel" />
+
+        <variable
+            name="user"
+            type="com.fredrikbogg.android_chat_app.data.db.entity.User" />
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="12dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="12dp"
+        android:clickable="true"
+        android:focusable="true"
+        android:onClick="@{() -> viewmodel.selectUser(user)}">
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/imageCardView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:cardCornerRadius="29dp"
+            app:cardPreventCornerOverlap="false"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <ImageView
+                android:id="@+id/userProfileImage"
+                android:layout_width="58dp"
+                android:layout_height="58dp"
+                android:layout_margin="0dp"
+                android:contentDescription="@string/user_image"
+                android:scaleType="centerCrop"
+                app:bind_image_url="@{user.info.profileImageUrl}"
+                tools:src="@tools:sample/avatars[0]" />
+        </androidx.cardview.widget.CardView>
+
+        <TextView
+            android:id="@+id/displayNameText"
+            style="@style/BoldText"
+            android:layout_width="0dp"
+            android:layout_marginTop="3dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:singleLine="true"
+            android:text="@{user.info.displayName}"
+            android:textSize="18sp"
+            app:layout_constraintLeft_toRightOf="@id/imageCardView"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="@id/imageCardView"
+            tools:text="Display name" />
+
+        <TextView
+            android:id="@+id/statusText"
+            style="@style/MessageSeen"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="3dp"
+            android:layout_marginStart="16dp"
+            android:singleLine="true"
+            android:text="@{user.info.status}"
+            android:textSize="14sp"
+            app:layout_constraintBottom_toBottomOf="@id/imageCardView"
+            app:layout_constraintLeft_toRightOf="@id/imageCardView"
+            app:layout_constraintRight_toRightOf="parent"
+            tools:text="Status" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

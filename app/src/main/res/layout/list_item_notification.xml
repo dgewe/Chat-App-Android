@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="viewmodel"
+            type="com.fredrikbogg.android_chat_app.ui.notifications.NotificationsViewModel" />
+
+        <variable
+            name="userinfo"
+            type="com.fredrikbogg.android_chat_app.data.db.entity.UserInfo" />
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="12dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="12dp">
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/chatCardView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:cardCornerRadius="29dp"
+            app:cardPreventCornerOverlap="false"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <ImageView
+                android:id="@+id/userProfileImage"
+                android:layout_width="58dp"
+                android:layout_height="58dp"
+                android:layout_margin="0dp"
+                android:contentDescription="@string/user_image"
+                android:scaleType="centerCrop"
+                app:bind_image_url="@{userinfo.profileImageUrl}"
+                tools:src="@tools:sample/avatars[0]" />
+        </androidx.cardview.widget.CardView>
+
+        <TextView
+            android:id="@+id/displayNameText"
+            style="@style/BoldText"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:singleLine="true"
+            android:text="@{userinfo.displayName}"
+            android:textSize="18sp"
+            app:layout_constraintLeft_toRightOf="@id/chatCardView"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="@id/chatCardView"
+            tools:text="Display name" />
+
+        <TextView
+            android:id="@+id/requestText"
+            style="@style/BoldText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginBottom="7dp"
+            android:text="@string/new_friend_request"
+
+            android:textSize="14sp"
+            app:layout_constraintBottom_toBottomOf="@id/chatCardView"
+            app:layout_constraintLeft_toRightOf="@id/chatCardView" />
+
+        <Button
+            android:id="@+id/acceptButton"
+            android:layout_width="wrap_content"
+            android:layout_height="45dp"
+            android:layout_marginTop="10dp"
+            android:onClick="@{() -> viewmodel.acceptNotificationPressed(userinfo)}"
+            android:text="@string/accept"
+            app:layout_constraintLeft_toLeftOf="@id/requestText"
+            app:layout_constraintTop_toBottomOf="@id/requestText" />
+
+        <Button
+            android:id="@+id/declineButton"
+            android:layout_width="wrap_content"
+            android:layout_height="45dp"
+            android:layout_marginStart="24dp"
+            android:backgroundTint="@color/textError"
+            android:onClick="@{() -> viewmodel.declineNotificationPressed(userinfo)}"
+            android:text="@string/decline"
+            app:layout_constraintLeft_toRightOf="@id/acceptButton"
+            app:layout_constraintTop_toTopOf="@id/acceptButton" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

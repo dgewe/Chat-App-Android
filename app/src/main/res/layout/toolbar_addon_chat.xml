@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <import type="android.view.View" />
+
+        <variable
+            name="viewmodel"
+            type="com.fredrikbogg.android_chat_app.ui.chat.ChatViewModel" />
+    </data>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/colorPrimary"
+        android:minHeight="?attr/actionBarSize"
+        tools:layout_height="?attr/actionBarSize">
+
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/imageContentLayout"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_centerInParent="true">
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/imageCardView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:cardCornerRadius="22dp"
+                app:cardElevation="0dp"
+                app:cardPreventCornerOverlap="false"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <ImageView
+                    android:id="@+id/userProfileImage"
+                    android:layout_width="44dp"
+                    android:layout_height="44dp"
+                    android:layout_margin="0dp"
+                    android:contentDescription="@string/user_image"
+                    android:scaleType="centerCrop"
+                    app:bind_image_url="@{viewmodel.otherUser.profileImageUrl}"
+                    tools:src="@drawable/ic_baseline_person_24" />
+            </androidx.cardview.widget.CardView>
+
+            <View
+                android:id="@+id/onlineView"
+                android:layout_width="11dp"
+                android:layout_height="11dp"
+                android:layout_marginStart="35dp"
+                android:background="@drawable/round_circle_online_green"
+                android:visibility="@{viewmodel.otherUser.online == true? View.VISIBLE : View.INVISIBLE}"
+                app:layout_constraintBottom_toBottomOf="@id/imageCardView"
+                app:layout_constraintRight_toRightOf="@id/imageCardView"
+                tools:visibility="visible" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentEnd="true"
+            android:layout_centerInParent="true"
+            android:layout_marginStart="16dp"
+            android:layout_toEndOf="@id/imageContentLayout"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/otherUserNameText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+
+                android:maxLines="1"
+                android:text="@{viewmodel.otherUser.displayName}"
+                android:textColor="@android:color/white"
+                android:textSize="18sp"
+                tools:text="John" />
+
+            <TextView
+                android:id="@+id/onlineStatusText"
+                android:layout_width="wrap_content"
+             
+                android:layout_height="wrap_content"
+                android:alpha=".7"
+                android:maxLines="1"
+                android:text="@{viewmodel.otherUser.online == true? `Online` : `Offline`}"
+                android:textColor="@android:color/white"
+                android:textSize="14sp"
+                tools:text="Online" />
+        </LinearLayout>
+
+
+    </RelativeLayout>
+
+</layout>

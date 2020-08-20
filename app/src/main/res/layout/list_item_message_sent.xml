@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="viewmodel"
+            type="com.fredrikbogg.android_chat_app.ui.chat.ChatViewModel" />
+
+        <variable
+            name="message"
+            type="com.fredrikbogg.android_chat_app.data.db.entity.Message" />
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="10dp"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/timeText"
+            android:layout_width="match_parent"
+            android:layout_height="36dp"
+            android:gravity="center"
+            android:textSize="12sp"
+            app:bind_epochTimeMsToDate="@{message.epochTimeMs}"
+            app:bind_message="@{message}"
+            app:bind_message_viewModel="@{viewmodel}"
+            tools:text="11:40" />
+
+        <TextView
+            android:id="@+id/messageText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="end"
+            android:layout_marginEnd="12dp"
+            android:background="@drawable/rounded_rectangle_primary"
+            android:maxWidth="240dp"
+            android:paddingLeft="12dp"
+            android:paddingTop="6dp"
+            android:paddingRight="12dp"
+            android:paddingBottom="6dp"
+            android:text="@{message.text}"
+            android:textColor="@android:color/white"
+            android:textSize="16sp"
+            tools:text="This is a message" />
+    </LinearLayout>
+</layout>
