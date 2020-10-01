@@ -43,7 +43,7 @@ Model-View-ViewModel (MVVM)
 
 ## Screenshots
 
-### Start
+### Start | Login | Create Account
 
 <p align = "left" >
   <img width="250" height="500" src="github_images/start.png">
@@ -51,17 +51,19 @@ Model-View-ViewModel (MVVM)
   <img width="250" height="500" src="github_images/create.png"> 
 </p>
 
-### Bottom Navigation
+### Chats | Notifications | Users
+
 <p align = "left" >
-  <img width="200" height="400" src="github_images/chats.png">
-  <img width="200" height="400" src="github_images/notifications.png"> 
-  <img width="200" height="400" src="github_images/users.png">   
-  <img width="200" height="400" src="github_images/settings.png"> 
+  <img width="250" height="500" src="github_images/chats.png">
+  <img width="250" height="500"  src="github_images/notifications.png"> 
+  <img width="250" height="500" src="github_images/users.png"> 
 </p>
 
-### Chat, Profile
+### Settings | Chat | Profile
+
 <p align = "left" >
-  <img width="250" height="500" src="github_images/chat.png">
+  <img width="250" height="500" src="github_images/settings.png">
+  <img width="250" height="500"  src="github_images/chat.png"> 
   <img width="250" height="500" src="github_images/profile.png"> 
 </p>
 
