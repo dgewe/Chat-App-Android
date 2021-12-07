@@ -82,6 +82,8 @@ Model-View-ViewModel (MVVM)
  * Setup Realtime Database
  * Setup Storage
  * Replace the file [google-services.json](app/google-services.json)
+ * <b>Note:</b> Download the google-services.json file after the Firebase services are set up to automatically include the services in the json file.
+ * <b>Note:</b> When updating the google-services.json file then make sure to invalidate the caches as well as doing a clean + rebuild.
 
 #### Project
 1. Download and open the project in Android Studio
